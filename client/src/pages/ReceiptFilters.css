@@ -1,0 +1,136 @@
+.receipt-filters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: end;
+  gap: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+  background: #ffffff;
+  border: 1px solid #e1e8e3;
+  border-radius: 14px;
+}
+
+.receipt-filters > div {
+  min-width: 0;
+}
+
+.receipt-filters .filter-search {
+  grid-column: span 2;
+}
+
+/* Labels */
+.receipt-filters label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #56675d;
+}
+
+/* Inputs and dropdowns */
+.receipt-filters input,
+.receipt-filters select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #dce5df;
+  border-radius: 8px;
+  background: #fafcfb;
+  color: #203a2e;
+  font: inherit;
+  font-size: 14px;
+}
+
+.receipt-filters input::placeholder {
+  color: #7c8b82;
+}
+
+.receipt-filters select {
+  cursor: pointer;
+}
+
+.receipt-filters input:focus-visible,
+.receipt-filters select:focus-visible {
+  outline: 1px solid #8cbea0;
+}
+
+/* Clear button */
+.receipt-filters .filter-clear {
+  justify-self: start;
+  width: auto;
+  min-height: 44px;
+  margin: 0;
+  padding: 10px 16px;
+  background: #eef3ef;
+  color: #28543a;
+  border: 1px solid #dce5df;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.receipt-filters .filter-clear:not(:disabled):hover {
+  background: #e1ebe4;
+}
+
+.receipt-filters .filter-clear:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Results count */
+.dashboard .results-count {
+  margin: 0 0 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #64756b;
+}
+
+/* Empty results */
+.dashboard .empty-state {
+  padding: 40px 20px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px dashed #cad9cf;
+  border-radius: 16px;
+}
+
+.dashboard .empty-state h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: #203a2e;
+}
+
+.dashboard .empty-state p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #64756b;
+}
+
+/* Tablet */
+@media (max-width: 760px) {
+  .receipt-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .receipt-filters {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .receipt-filters .filter-search {
+    grid-column: auto;
+  }
+
+  .receipt-filters .filter-clear {
+    justify-self: stretch;
+    width: 100%;
+  }
+}

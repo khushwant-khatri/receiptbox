@@ -1,0 +1,17 @@
+.receipt-modal {
+  width: min(520px, calc(100% - 32px));
+  max-height: calc(100dvh - 48px);
+  margin: auto;
+  padding: 0;
+  border: none;
+  border-radius: 20px;
+  background: white;
+  color: #203a2e;
+  box-shadow: 0 24px 80px #10281d33;
+  overflow-y: auto;
+}
+
+.receipt-modal::backdrop {
+  background: #10281d88;
+  backdrop-filter: blur(4px);
+}

@@ -1,0 +1,40 @@
+.receipt-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #dce5df;
+}
+
+.receipt-pagination span {
+  font-size: 14px;
+  color: #64756b;
+  text-align: center;
+}
+
+.dashboard .receipt-pagination button {
+  padding: 10px 16px;
+  background: white;
+  color: #28543a;
+  border: 1px solid #dce5df;
+  border-radius: 8px;
+}
+
+.dashboard .receipt-pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 540px) {
+  .receipt-pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .dashboard .receipt-pagination button {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}

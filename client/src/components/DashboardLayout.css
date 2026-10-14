@@ -1,0 +1,223 @@
+.dashboard-layout {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  background: #f7f8f2;
+}
+
+.dashboard-sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow-y: auto;
+  padding: 28px 20px;
+  background: #fffef9;
+  border-right: 1px solid #e3e8dc;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #194d38;
+  text-decoration: none;
+  font-size: 21px;
+  font-weight: 750;
+}
+
+.sidebar-brand > span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #194d38;
+  color: #ddedad;
+}
+
+.sidebar-label {
+  margin: 40px 12px 12px;
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  color: #68776c;
+}
+
+.dashboard-sidebar nav {
+  display: grid;
+  gap: 8px;
+}
+
+.dashboard-sidebar nav a {
+  padding: 13px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #31533f;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.dashboard-sidebar nav a:hover,
+.dashboard-sidebar nav a:focus-visible {
+  background: #edf3e7;
+}
+
+.sidebar-tip {
+  margin-top: 36px;
+  padding: 18px;
+  border-radius: 14px;
+  background: #edf3e2;
+  color: #31533f;
+}
+
+.sidebar-tip > span {
+  font-size: 24px;
+}
+
+.sidebar-tip h3 {
+  margin: 12px 0 8px;
+  font-size: 14px;
+}
+
+.sidebar-tip p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.sidebar-account {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 28px;
+}
+
+.account-avatar {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ddedad;
+  color: #194d38;
+  font-weight: 700;
+}
+
+.account-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.account-details strong,
+.account-details span {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.account-details strong {
+  font-size: 13px;
+}
+
+.account-details span {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #68776c;
+}
+
+.sidebar-account button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dce5d7;
+  border-radius: 8px;
+  background: transparent;
+  color: #31533f;
+}
+
+.dashboard-content {
+  min-width: 0;
+}
+
+.dashboard-layout .dashboard {
+  width: 100%;
+  max-width: 1240px;
+  padding: 32px;
+}
+
+.dashboard-layout .dashboard-header h1 {
+  font-size: 28px;
+}
+
+.dashboard-layout .receipt-grid {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+#overview,
+#receipts {
+  scroll-margin-top: 24px;
+}
+
+@media (max-width: 1000px) {
+  .dashboard-layout {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+
+  .dashboard-sidebar {
+    padding: 24px 14px;
+  }
+
+  .dashboard-layout .dashboard {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 800px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-sidebar {
+    position: static;
+    height: auto;
+    padding: 16px 20px;
+    border-right: none;
+    border-bottom: 1px solid #e3e8dc;
+  }
+
+  .sidebar-label,
+  .sidebar-tip {
+    display: none;
+  }
+
+  .dashboard-sidebar nav {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+
+  .sidebar-account {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e3e8dc;
+  }
+
+  .sidebar-account button {
+    width: auto;
+  }
+
+  .dashboard-layout .dashboard {
+    padding: 24px 16px;
+  }
+
+  .dashboard-layout .receipt-grid {
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  }
+}
+
+@media (max-width: 400px) {
+  .dashboard-layout .receipt-grid {
+    grid-template-columns: 1fr;
+  }
+}

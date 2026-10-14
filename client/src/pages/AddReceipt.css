@@ -1,0 +1,99 @@
+.receipt-form {
+  width: 100%;
+  margin: 0;
+  padding: 28px;
+}
+
+.receipt-form .eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  color: #52705e;
+}
+
+.receipt-form .form-heading h2 {
+  margin: 10px 0;
+  font-size: 26px;
+  letter-spacing: -0.6px;
+}
+
+.receipt-form .form-heading p {
+  margin: 0;
+  color: #64756b;
+  font-size: 14px;
+}
+
+.receipt-form .form-fields {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.receipt-form label {
+  display: block;
+  margin: 20px 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.receipt-form input,
+.receipt-form select {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  background: #fafcfb;
+  border: 1px solid #dce5df;
+  border-radius: 10px;
+}
+
+.receipt-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.receipt-form .form-row > div {
+  min-width: 0;
+}
+
+.receipt-form .form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.receipt-form .form-actions button {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: #246247;
+  color: white;
+}
+
+.receipt-form .form-actions .secondary-button {
+  background: #eef3ef;
+  color: #28543a;
+  border-color: #dce5df;
+}
+
+@media (max-width: 540px) {
+  .receipt-form {
+    padding: 22px;
+  }
+
+  .receipt-form .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+.receipt-form select {
+  font: inherit;
+  color: #203a2e;
+}
+
+.receipt-form select:focus-visible {
+  outline: 1px solid #8cbea0;
+}
