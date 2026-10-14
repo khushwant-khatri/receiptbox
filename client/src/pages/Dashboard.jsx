@@ -6,6 +6,7 @@ import ReceiptPagination from "./ReceiptPagination";
 import { exportReceipts } from "../utils/exportReceipts";
 import DashboardLayout from "../components/DashboardLayout";
 import CategorySpending from "../components/CategorySpending";
+import DeleteReceiptModal from "../components/DeleteReceiptModal";
 import { apiRequest } from "../utils/api";
 import "./Dashboard.css";
 
@@ -32,6 +33,9 @@ export default function Dashboard({ session, onLogout, onSessionExpired }) {
 
   const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");
+
+  const [receiptToDelete, setReceiptToDelete] = useState(null);
+
   useEffect(() => {
     const controller = new AbortController();
 
@@ -78,10 +82,6 @@ export default function Dashboard({ session, onLogout, onSessionExpired }) {
   async function handleDelete(id) {
     if (deletingId) return;
 
-    if (!window.confirm("Are you sure you want to delete this receipt?")) {
-      return;
-    }
-
     setDeletingId(id);
     setDeleteError("");
     setNotice("");
@@ -97,6 +97,7 @@ export default function Dashboard({ session, onLogout, onSessionExpired }) {
         previous.filter((receipt) => receipt._id !== id),
       );
 
+      setReceiptToDelete(null);
       setNotice("Receipt deleted successfully.");
     } catch (error) {
       if (error.status !== 401) {
@@ -303,12 +304,6 @@ export default function Dashboard({ session, onLogout, onSessionExpired }) {
           </p>
         )}
 
-        {deleteError && (
-          <p className="error" role="alert">
-            {deleteError}
-          </p>
-        )}
-
         {loading ? (
           <p>Loading receipts...</p>
         ) : error ? (
@@ -359,7 +354,10 @@ export default function Dashboard({ session, onLogout, onSessionExpired }) {
 
                   <button
                     className="delete-button"
-                    onClick={() => handleDelete(receipt._id)}
+                    onClick={() => {
+                      setDeleteError("");
+                      setReceiptToDelete(receipt);
+                    }}
                     disabled={deletingId !== null}
                   >
                     {deletingId === receipt._id ? "Deleting..." : "Delete"}
@@ -374,6 +372,21 @@ export default function Dashboard({ session, onLogout, onSessionExpired }) {
             page={currentPage}
             totalPages={totalPages}
             onPageChange={setPage}
+          />
+        )}
+
+        {receiptToDelete && (
+          <DeleteReceiptModal
+            receipt={receiptToDelete}
+            loading={deletingId !== null}
+            error={deleteError}
+            onCancel={() => {
+              if (deletingId) return;
+
+              setReceiptToDelete(null);
+              setDeleteError("");
+            }}
+            onConfirm={() => handleDelete(receiptToDelete._id)}
           />
         )}
       </main>

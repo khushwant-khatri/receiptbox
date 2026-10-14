@@ -1,0 +1,119 @@
+.delete-modal {
+  width: min(440px, calc(100% - 32px));
+  max-height: calc(100dvh - 48px);
+  margin: auto;
+  padding: 0;
+  overflow-y: auto;
+  border: 1px solid #e8e7e0;
+  border-radius: 20px;
+  background: #fffefb;
+  color: #203a2e;
+  box-shadow: 0 24px 80px #14291d33;
+}
+
+.delete-modal::backdrop {
+  background: #10281d80;
+  backdrop-filter: blur(4px);
+}
+
+.delete-modal-content {
+  padding: 28px;
+}
+
+.delete-modal-icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 20px;
+  border: 1px solid #f5d8d2;
+  border-radius: 16px;
+  background: #fff0eb;
+  color: #b23828;
+}
+
+.delete-modal h2 {
+  margin: 0 0 12px;
+  font-size: 24px;
+  letter-spacing: -0.6px;
+}
+
+.delete-modal p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #64756b;
+  overflow-wrap: anywhere;
+}
+
+.delete-modal p strong {
+  color: #203a2e;
+}
+
+.delete-receipt-details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 22px 0;
+  padding: 14px 16px;
+  border: 1px solid #e5e9df;
+  border-radius: 10px;
+  background: #f6f8f1;
+  font-size: 13px;
+}
+
+.delete-receipt-details span {
+  color: #64756b;
+}
+
+.delete-modal .delete-modal-error {
+  margin-bottom: 16px;
+  color: #b42318;
+}
+
+.delete-modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.delete-modal .delete-modal-actions button {
+  flex: 1;
+  min-height: 44px;
+  margin: 0;
+  padding: 11px 14px;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.delete-modal .delete-modal-actions .delete-cancel {
+  background: white;
+  color: #31533f;
+  border: 1px solid #dce5d7;
+}
+
+.delete-modal .delete-modal-actions .delete-confirm {
+  background: #b23828;
+  color: white;
+  border: 1px solid #b23828;
+}
+
+.delete-modal .delete-confirm:not(:disabled):hover {
+  background: #922d20;
+}
+
+.delete-modal .delete-cancel:not(:disabled):hover {
+  background: #edf3e7;
+}
+
+@media (max-width: 400px) {
+  .delete-modal-content {
+    padding: 22px;
+  }
+
+  .delete-modal-actions {
+    flex-direction: column;
+  }
+}
